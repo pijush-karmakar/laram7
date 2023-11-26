@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +17,16 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
-Route::get('/profile/{id?}',[ProfileController::class,'index']);
+Route::get('/',[ProfileController::class,'page'])->name('home');
+Route::get('/about',[ProfileController::class,'about'])->name('about');
+Route::get('/project',[ProfileController::class,'project'])->name('project');
+Route::get('/contact',[ProfileController::class,'contact'])->name('contact');
+
+
+
+
+
 
 
